@@ -1,8 +1,11 @@
-const  Page= () => {
+import { prisma } from "@/lib/db"; 
+const  Page= async() => {
+        const users = await prisma.user.findMany();
+
   return ( 
-    <Button variant="destructive">
-      Click here
-    </Button>
+    <div>
+      {JSON.stringify(users,null,2)}
+    </div>
    );
 }
  
