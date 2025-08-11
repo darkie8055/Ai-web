@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { baseProcedure, createTRPCRouter } from '../init';
+import {inngest} from '@/inngest/client';
 export const appRouter = createTRPCRouter({
   invoke: baseProcedure
     .input(
@@ -12,7 +13,7 @@ export const appRouter = createTRPCRouter({
         name: 'test/hello.world', 
         email: input.email,
       });
-      
+      return {ok:'success'}
     }),
 
   createAI: baseProcedure
